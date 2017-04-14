@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import {Scene, Router} from 'react-native-router-flux';
+
+import Login from './components/Login'
 
 export default class petAppy extends Component {
   render() {
     return (
-      <View style={styles.container}>
-      </View>
+      <Router>
+        <Scene key="root">
+          <Scene key="login" component={Login} title="Login" inital={true} />
+        </Scene>
+      </Router>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});
