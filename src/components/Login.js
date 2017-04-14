@@ -1,30 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
-  Button,
-  Image
-} from 'react-native';
+  Image,
+} from 'react-native'
 
-const images = {
-  logo: require('../assets/petappy.png')
-}
-
-export default class Login extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Image source={images.logo} alt="logo petAppy"></Image>
-        <Text>
-          PetAppy
-        </Text>
-        <Button title="Entrar"> Entrar </Button>
-        <Button title="Criar Conta"> Criar Conta </Button>
-      </View>
-    );
-  }
+const theme = {
+  primaryColor: '#f79b2e',
+  secondaryColor: '#49638e',
+  primaryLightColor: '#ffa55b',
+  secondaryLightColor: '#74a7ff',
+  tertiaryColor: '#f25454'
 }
 
 const styles = StyleSheet.create({
@@ -33,5 +20,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+})
+
+const images = {
+  logo: require('../assets/petappy.png'),
+}
+
+export default class Login extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Image
+          source={images.logo}
+          alt="logo petAppy" />
+        <Text>
+          PetAppy
+        </Text>
+      </View>
+    )
   }
-});
+}
