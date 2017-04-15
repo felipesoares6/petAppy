@@ -10,8 +10,8 @@ export default class petAppy extends Component {
           <Scene key="root">
               <Scene key="login"
                 component={Login}
-                title="Login"
-                inital={true} />
+                inital={true}
+                hideNavBar />
           </Scene>
       </Router>
     )

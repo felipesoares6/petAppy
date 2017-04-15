@@ -2,42 +2,92 @@ import React, { Component } from 'react'
 import {
   StyleSheet,
   Text,
-  View,
   Image,
+  View,
 } from 'react-native'
 
-const theme = {
-  primaryColor: '#f79b2e',
-  secondaryColor: '#49638e',
-  primaryLightColor: '#ffa55b',
-  secondaryLightColor: '#74a7ff',
-  tertiaryColor: '#f25454'
-}
+import { primaryColor, secondaryColor, halfOpacityColor, textPrimaryColor } from '../styles/colors'
+import { primaryFont } from '../styles/fonts'
+
+import Button from './Button'
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
+ background: {
+   width: null,
+   height: null,
+   flex: 1,
+   alignItems: 'stretch',
+   resizeMode: 'cover',
+ },
+ container: {
+   width: null,
+   height: null,
+   flex: 1,
+   flexDirection: 'column',
+   justifyContent: 'space-around',
+   alignItems: 'center',
+   backgroundColor: halfOpacityColor,
+   paddingTop: 50,
+ },
+ imageIcon: {
+   width: 130,
+   height: 150,
+ },
+ title: {
+   fontFamily: primaryFont,
+   fontSize: 56,
+   color: textPrimaryColor,
+ },
+ buttonText: {
+   fontSize: 18,
+   fontWeight: 'bold',
+   color: textPrimaryColor,
+ },
+ buttonContainer: {
+   marginBottom: 30,
+ },
 })
 
 const images = {
+  background: require('../assets/bg-img.png'),
   logo: require('../assets/petappy.png'),
 }
 
 export default class Login extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Image
-          source={images.logo}
-          alt="logo petAppy" />
-        <Text>
-          PetAppy
-        </Text>
-      </View>
+      <Image source={images.background}
+        style={styles.background}>
+
+        <View style={styles.container}>
+
+          <Image
+            source={images.logo}
+            alt="logo petAppy"
+            style={styles.imageIcon} />
+
+          <Text style={styles.title}>
+             PetAppy
+          </Text>
+
+          <View style={styles.buttonContainer}>
+
+            <Button styleButton={primaryColor}>
+              <Text
+                style={styles.buttonText}>
+                Entrar
+              </Text>
+            </Button>
+
+            <Button styleButton={secondaryColor}>
+              <Text
+                style={styles.buttonText}>
+                Criar conta
+              </Text>
+            </Button>
+          </View>
+        </View>
+      </Image>
     )
   }
 }
