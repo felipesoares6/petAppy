@@ -72,14 +72,14 @@ export default class Login extends Component {
 
           <View style={styles.buttonContainer}>
 
-            <Button styleButton={primaryColor}>
+            <Button bgColor={primaryColor}>
               <Text
                 style={styles.buttonText}>
                 Entrar
               </Text>
             </Button>
 
-            <Button styleButton={secondaryColor}>
+            <Button bgColor={secondaryColor}>
               <Text
                 style={styles.buttonText}>
                 Criar conta
