@@ -3,6 +3,8 @@ import { Component } from 'React'
 
 import { StyleSheet } from 'react-native'
 
+import PropTypes from 'prop-types'
+
 const MK = require('react-native-material-kit')
 
 const { MKButton } = MK
@@ -32,3 +34,9 @@ export default class Button extends Component {
       )
     }
   }
+
+Button.propTypes = {
+  bgColor: PropTypes.string.isRequired,
+  styleButton: PropTypes.object,
+  children: PropTypes.element.isRequired,
+}
