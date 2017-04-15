@@ -5,9 +5,7 @@ import { StyleSheet } from 'react-native'
 
 const MK = require('react-native-material-kit')
 
-const {
-  MKButton,
-} = MK
+const { MKButton } = MK
 
 const styles = StyleSheet.create({
   button: {
@@ -20,15 +18,17 @@ const styles = StyleSheet.create({
 
 export default class Button extends Component {
     render () {
-      const ButtonCB = MKButton.coloredButton()
-        .withStyle(styles.button)
-        .withBackgroundColor(this.props.styleButton)
+      const styleButton = this.props.styleButton || styles.button
+
+      const ColoredButton = MKButton.coloredButton()
+        .withStyle(styleButton)
+        .withBackgroundColor(this.props.bgColor)
         .build()
 
       return (
-        <ButtonCB>
+        <ColoredButton>
           {this.props.children}
-        </ButtonCB>
+        </ColoredButton>
       )
     }
   }
