@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
   button: {
     width: 280,
     height: 50,
-    marginTop: 5,
-    marginBottom: 5,
+    marginTop: 10,
+    marginBottom: 10,
   },
 })
 
@@ -25,6 +25,7 @@ export default class Button extends Component {
       const ColoredButton = MKButton.coloredButton()
         .withStyle(styleButton)
         .withBackgroundColor(this.props.bgColor)
+        .withOnPress(this.props.onPress)
         .build()
 
       return (
@@ -39,4 +40,5 @@ Button.propTypes = {
   bgColor: PropTypes.string.isRequired,
   styleButton: PropTypes.object,
   children: PropTypes.element.isRequired,
+  onPress: PropTypes.func,
 }
