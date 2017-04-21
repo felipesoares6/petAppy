@@ -6,7 +6,15 @@ import {
   View,
 } from 'react-native'
 
-import { primaryColor, secondaryColor, halfOpacityColor, textPrimaryColor } from '../styles/colors'
+import { Actions } from 'react-native-router-flux'
+
+import {
+   primaryColor,
+   secondaryColor,
+   halfOpacityColor,
+   textPrimaryColor,
+} from '../styles/colors'
+
 import { primaryFont } from '../styles/fonts'
 
 import Button from './Button'
@@ -72,7 +80,8 @@ export default class Login extends Component {
 
           <View style={styles.buttonContainer}>
 
-            <Button bgColor={primaryColor}>
+            <Button bgColor={primaryColor}
+              onPress={Actions.EnterLogin}>
               <Text
                 style={styles.buttonText}>
                 Entrar
