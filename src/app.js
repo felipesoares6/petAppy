@@ -3,6 +3,7 @@ import {Scene, Router} from 'react-native-router-flux'
 
 import Login from './components/Login'
 import EnterLogin from './components/EnterLogin'
+import Home from './components/Home'
 
 export default class petAppy extends Component {
   render() {
@@ -14,8 +15,11 @@ export default class petAppy extends Component {
                 inital={true}
                 hideNavBar />
               <Scene key="EnterLogin"
-                component={EnterLogin}
-                title="Login" />
+                component={EnterLogin} />
+              <Scene key="Home"
+                component={Home}
+                title="Home"
+                hideNavBar={false} />
           </Scene>
       </Router>
     )
