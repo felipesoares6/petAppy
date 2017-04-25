@@ -17,6 +17,7 @@ import {
 
 import { primaryFont } from '../styles/fonts'
 
+import FlexContainer from './FlexContainer'
 import Button from './Button'
 
 const styles = StyleSheet.create({
@@ -35,11 +36,12 @@ const styles = StyleSheet.create({
    justifyContent: 'space-around',
    alignItems: 'center',
    backgroundColor: halfOpacityColor,
-   paddingTop: 50,
+   paddingTop: 30,
  },
  imageIcon: {
    width: 130,
    height: 150,
+   marginTop: 50,
  },
  title: {
    fontFamily: primaryFont,
@@ -56,18 +58,20 @@ const styles = StyleSheet.create({
  },
 })
 
+const container = StyleSheet.flatten(styles.container)
+
 const images = {
   background: require('../assets/bg-img.png'),
   logo: require('../assets/petappy.png'),
 }
 
 export default class Login extends Component {
-  render() {
+  render () {
     return (
       <Image source={images.background}
         style={styles.background}>
 
-        <View style={styles.container}>
+        <FlexContainer containerStyle={container}>
 
           <Image
             source={images.logo}
@@ -95,7 +99,7 @@ export default class Login extends Component {
               </Text>
             </Button>
           </View>
-        </View>
+        </FlexContainer>
       </Image>
     )
   }

@@ -12,7 +12,6 @@ import {
    primaryColor,
    textPrimaryColor,
    textSecondaryColor,
-   backgroundColor,
    secondaryLightColor,
 } from '../styles/colors'
 
@@ -20,18 +19,9 @@ import { primaryFont } from '../styles/fonts'
 
 import Button from './Button'
 import TextField from './TextField'
+import FlexContainer from './FlexContainer'
 
 const styles = StyleSheet.create({
- container: {
-   width: null,
-   height: null,
-   flex: 1,
-   flexDirection: 'column',
-   justifyContent: 'space-around',
-   alignItems: 'center',
-   backgroundColor: backgroundColor,
-   paddingTop: 30,
- },
  imageIcon: {
    width: 110,
    height: 130,
@@ -63,7 +53,7 @@ const images = {
 export default class EnterLogin extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <FlexContainer>
 
         <Image
           source={images.logo}
@@ -83,7 +73,8 @@ export default class EnterLogin extends Component {
 
         <View style={styles.buttonContainer}>
 
-          <Button bgColor={primaryColor}>
+          <Button bgColor={primaryColor}
+            onPress={Actions.Home}>
             <Text
               style={styles.buttonText}>
               Entrar
@@ -98,7 +89,7 @@ export default class EnterLogin extends Component {
             </Text>
           </Button>
         </View>
-      </View>
+      </FlexContainer>
     )
   }
 }

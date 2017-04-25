@@ -20,10 +20,10 @@ const styles = StyleSheet.create({
 
 export default class Button extends Component {
     render () {
-      const styleButton = this.props.styleButton || styles.button
+      const buttonStyle = this.props.buttonStyle || styles.button
 
       const ColoredButton = MKButton.coloredButton()
-        .withStyle(styleButton)
+        .withStyle(buttonStyle)
         .withBackgroundColor(this.props.bgColor)
         .withOnPress(this.props.onPress)
         .build()
@@ -38,7 +38,7 @@ export default class Button extends Component {
 
 Button.propTypes = {
   bgColor: PropTypes.string.isRequired,
-  styleButton: PropTypes.object,
+  buttonStyle: PropTypes.object,
   children: PropTypes.element.isRequired,
   onPress: PropTypes.func,
 }
