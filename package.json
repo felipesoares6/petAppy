@@ -14,9 +14,10 @@
 		"eslint": "^3.17.1",
 		"eslint-plugin-react": "^6.10.0",
 		"eslint-plugin-react-native": "^2.3.1",
+		"native-base": "^2.1.5",
 		"prop-types": "^15.5.8",
-		"react": "15.4.2",
-		"react-native": "0.41.2",
+		"react": "16.0.0-alpha.6",
+		"react-native": "0.44.0",
 		"react-native-material-kit": "^0.4.1",
 		"react-native-router-flux": "^3.38.0",
 		"redux": "^3.6.0"
