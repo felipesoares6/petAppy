@@ -1,24 +1,19 @@
 import React, { Component } from 'react'
+import { Actions } from 'react-native-router-flux'
 import {
   StyleSheet,
   Text,
   Image,
   View,
 } from 'react-native'
-
-import { Actions } from 'react-native-router-flux'
-
-import {
-   primaryColor,
-   secondaryColor,
-   halfOpacityColor,
-   textPrimaryColor,
-} from '../styles/colors'
-
+import { Button } from 'native-base'
 import { primaryFont } from '../styles/fonts'
-
-import FlexContainer from './FlexContainer'
-import Button from './Button'
+import {
+  primaryColor,
+  secondaryColor,
+  halfOpacityColor,
+  textPrimaryColor,
+} from '../styles/colors'
 
 const styles = StyleSheet.create({
  background: {
@@ -54,11 +49,23 @@ const styles = StyleSheet.create({
    color: textPrimaryColor,
  },
  buttonContainer: {
+   alignSelf: 'stretch',
+   marginLeft: 30,
+   marginRight: 30,
    marginBottom: 30,
+ },
+ buttonLogin: {
+   backgroundColor: primaryColor,
+   marginBottom: 10,
+ },
+ buttonCreateAccount: {
+   backgroundColor: secondaryColor,
+   marginTop: 10,
  },
 })
 
-const container = StyleSheet.flatten(styles.container)
+const buttonLogin = StyleSheet.flatten(styles.buttonLogin)
+const buttonCreateAccount = StyleSheet.flatten(styles.buttonCreateAccount)
 
 const images = {
   background: require('../assets/bg-img.png'),
@@ -71,7 +78,7 @@ export default class Login extends Component {
       <Image source={images.background}
         style={styles.background}>
 
-        <FlexContainer containerStyle={container}>
+        <View style={styles.container}>
 
           <Image
             source={images.logo}
@@ -84,7 +91,9 @@ export default class Login extends Component {
 
           <View style={styles.buttonContainer}>
 
-            <Button bgColor={primaryColor}
+            <Button
+              full
+              style={buttonLogin}
               onPress={Actions.EnterLogin}>
               <Text
                 style={styles.buttonText}>
@@ -92,14 +101,16 @@ export default class Login extends Component {
               </Text>
             </Button>
 
-            <Button bgColor={secondaryColor}>
+            <Button
+              full
+              style={buttonCreateAccount}>
               <Text
                 style={styles.buttonText}>
                 Criar conta
               </Text>
             </Button>
           </View>
-        </FlexContainer>
+        </View>
       </Image>
     )
   }
