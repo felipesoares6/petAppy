@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-
-import Button from './Button'
-import FlexContainer from './FlexContainer'
-
 import {
   Text,
   StyleSheet,
+  View,
 } from 'react-native'
-
+import { Button } from 'native-base'
 import {
   textPrimaryColor,
   secondaryColor,
@@ -22,11 +19,17 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     color: textSecondaryColor,
   },
-  button: {
-    width: 300,
+  buttonLost: {
     height: 70,
     marginTop: 20,
     marginBottom: 20,
+    backgroundColor: tertiaryColor,
+  },
+  buttonFound: {
+    height: 70,
+    marginTop: 20,
+    marginBottom: 20,
+    backgroundColor: secondaryColor,
   },
   buttonText: {
     color: textPrimaryColor,
@@ -42,29 +45,34 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: backgroundColor,
     paddingTop: 30,
+    paddingLeft: 30,
+    paddingRight: 30,
   },
 })
 
 const container = StyleSheet.flatten(styles.container)
-const button = StyleSheet.flatten(styles.button)
+const buttonLost = StyleSheet.flatten(styles.buttonLost)
+const buttonFound = StyleSheet.flatten(styles.buttonFound)
 
 export default class CardSelect extends Component {
   render () {
     return (
-      <FlexContainer containerStyle={container}>
+      <View style={container}>
 
         <Text style={styles.text}> O que aconteceu? </Text>
 
-        <Button bgColor={tertiaryColor}
-          buttonStyle={button}>
+        <Button
+          full
+          style={buttonLost}>
           <Text style={styles.buttonText}> Perdi um animal </Text>
         </Button>
 
-        <Button bgColor={secondaryColor}
-          buttonStyle={button}>
+        <Button
+          full
+          style={buttonFound}>
           <Text style={styles.buttonText}> Encontrei um animal </Text>
         </Button>
-      </FlexContainer>
+      </View>
     )
   }
 }
