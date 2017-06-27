@@ -1,28 +1,40 @@
 import React, { Component } from 'react'
+import { Actions } from 'react-native-router-flux'
 import {
   StyleSheet,
   Text,
   Image,
   View,
 } from 'react-native'
-
-import { Actions } from 'react-native-router-flux'
-
+import {
+  Button,
+  Item,
+  Label,
+  Input,
+  Form,
+ } from 'native-base'
 import {
    primaryColor,
    textPrimaryColor,
    textSecondaryColor,
    secondaryLightColor,
+   backgroundColor,
 } from '../styles/colors'
-
 import { primaryFont } from '../styles/fonts'
 
-import Button from './Button'
-import TextField from './TextField'
-import FlexContainer from './FlexContainer'
-
 const styles = StyleSheet.create({
+  container: {
+    width: null,
+    height: null,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: backgroundColor,
+    paddingTop: 30,
+  },
  imageIcon: {
+   marginTop: 30,
    width: 110,
    height: 130,
  },
@@ -38,13 +50,30 @@ const styles = StyleSheet.create({
    color: textPrimaryColor,
  },
  textFieldContainer: {
-   marginTop: 40,
+   alignSelf: 'stretch',
    marginBottom: 30,
+   marginLeft: 30,
+   marginRight: 30,
  },
  buttonContainer: {
+   alignSelf: 'stretch',
    marginBottom: 30,
+   marginLeft: 30,
+   marginRight: 30,
+ },
+ buttonLogin: {
+   backgroundColor: primaryColor,
+   marginBottom: 10,
+ },
+ buttonCancel: {
+   backgroundColor: secondaryLightColor,
+   marginTop: 10,
  },
 })
+
+const buttonLogin = StyleSheet.flatten(styles.buttonLogin)
+const buttonCancel = StyleSheet.flatten(styles.buttonCancel)
+const textFieldContainer = StyleSheet.flatten(styles.textFieldContainer)
 
 const images = {
   logo: require('../assets/petappy.png'),
@@ -53,7 +82,7 @@ const images = {
 export default class EnterLogin extends Component {
   render() {
     return (
-      <FlexContainer>
+      <View style={styles.container}>
 
         <Image
           source={images.logo}
@@ -64,16 +93,24 @@ export default class EnterLogin extends Component {
            Acessar
         </Text>
 
-        <View style={styles.textFieldContainer}>
-
-          <TextField placeHolder='Email' />
-
-          <TextField placeHolder='Senha' />
-        </View>
+        <Form style={textFieldContainer}>
+          <Item floatingLabel
+            last>
+              <Label>Email</Label>
+              <Input />
+          </Item>
+          <Item floatingLabel
+            last>
+              <Label>Senha</Label>
+              <Input />
+          </Item>
+        </Form>
 
         <View style={styles.buttonContainer}>
 
-          <Button bgColor={primaryColor}
+          <Button
+            full
+            style={buttonLogin}
             onPress={Actions.Home}>
             <Text
               style={styles.buttonText}>
@@ -81,7 +118,9 @@ export default class EnterLogin extends Component {
             </Text>
           </Button>
 
-          <Button bgColor={secondaryLightColor}
+          <Button
+            full
+            style={buttonCancel}
             onPress={Actions.pop}>
             <Text
               style={styles.buttonText}>
@@ -89,7 +128,7 @@ export default class EnterLogin extends Component {
             </Text>
           </Button>
         </View>
-      </FlexContainer>
+      </View>
     )
   }
 }
